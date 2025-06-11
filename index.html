@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ProVox: Personalization and Proactive Planning for Situated Human-Robot Collaboration</title>
+  <meta name="description" content="ProVox: Personalization and Proactive Planning for Situated Human-Robot Collaboration.">
+  <meta name="keywords" content="ProVox, Continual Learning for Robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ProVox<br><span style="font-size:2.4rem;">Personalization and Proactive Planning for<br>Situated Human-Robot Collaboration</span></h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">RA-L Submission</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supplementary Video. -->
+  <section class="hero is-light teaser teaser-video">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="hero-body">
+        <video id="teaser" controls playsinline width="90%">
+          <source src="static/videos/provox-overview.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract. -->
+  <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Collaborative robots must quickly adapt to their partner's intent and preferences to proactively identify helpful actions. 
+            This is especially true in situated settings where human partners can continually teach robots new high-level behaviors, visual concepts, 
+            and physical skills (e.g., through demonstration), growing the robot's capabilities as the human-robot pair work together to accomplish diverse tasks. 
+            In this work, we argue that robots should be able to <i>infer their partner's goals</i> from early interactions and use this information to <i>proactively plan behaviors</i> 
+            ahead of explicit instructions from the user. Building from the strong commonsense priors and steerability of large language models, 
+            we introduce ProVox (Proactive Voice), a novel framework that enables robots to efficiently personalize and adapt to individual collaborators. 
+            We design a <i>meta-prompting</i> protocol that empowers users to communicate their distinct preferences, intent, and expected robot behaviors ahead of 
+            starting a physical interaction. ProVox then uses the personalized prompt to condition a <i>proactive language model task planner</i> that anticipates a user's 
+            intent from the current interaction context and robot capabilities to suggest helpful actions; in doing so, we alleviate user burden, minimizing the amount of 
+            time partners spend explicitly instructing and supervising the robot. We evaluate ProVox through user studies grounded in household manipulation tasks 
+            (e.g., assembling lunch bags) that measure the efficiency of the collaboration, as well as features such as perceived helpfulness, ease of use, and reliability. 
+            Our analysis suggests that both meta-prompting and proactivity are critical, resulting in 38.7% faster task completion times and 31.9% less user burden 
+            relative to non-active baselines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <!--/ Abstract. -->
+
+  <!-- ProVox -- Overview. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title has-text-centered is-3">ProVox – Motivating Example</h2>
+          <div class="content has-text-justified has-text-centered">
+            <img alt="Motivating Example" src="static/images/motivating-example.png" />
+            <br/><br/>
+            <p>
+              We present <b>ProVox</b> ("Proactive Voice"), a framework for personalization and proactive planning in the context of a situated human-robot collaboration. In the first phase of a 
+              collaboration [<b>Top, Middle</b>], a human partner communicates their goals and distinct preferences, enabling the robot to <i>personalize</i>> to an individual. Throughout the rest of the 
+              collaboration [<b>Right</b>], the robot continues to incorporate and anticipate their partner's intent to <i>proactively suggest helpful actions</i> (e.g. "Should I pack the Skittles next?'') 
+              ahead of explicit instructions, reducing the user's burden and mental load while they assemble the sandwich.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ ProVox -- Overview. -->
+
+  <!-- Meta-Prompting & Proactive Planning -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title has-text-centered is-3">Contributions: Meta-Prompting & Proactive Planning</h2>
+          <div class="content has-text-justified has-text-centered">
+            <img alt="Meta-Prompting & Proactive Planning" src="static/images/meta-prompt-interface.png" />
+            <br/><br/>
+            <p>
+              ProVox develops a novel meta-prompting protocol to collect two critical pieces of information from an individual: their specific goal, as well as an API of useful behaviors. 
+              Crucially, each user has a distinct set of preferences, yielding different goals and behaviors. For example, the female user [<b>Top-Left</b>] wants her children's lunch to contain Skittles, 
+              Rice-Krispies, and hand sanitizer, and teaches the robot to <code>pack</code> objects, with full confidence in its ability to identify, grasp, and move objects. 
+            </p>
+            <p>
+            In contrast, the male user [<b>Bottom-Left</b>] is more hesitant in trusting the robot; as a result, he separates pick-and-place into two parts: a motion to <code>reach_for</code> an object 
+            (moving above it without grasping), followed by a <code>put</code> behavior to complete the motion. The language model task planner then leverages this meta-prompted context to proactively 
+            suggest helpful behaviors over the course of the interaction [<b>Right</b>].
+            </p>
+          </div>
+
+          <!-- Base API -->
+          <h3 class="title is-4">Language Model Task Planner Prompts</h3>
+          <div class="content has-text-justified has-text-centered"></div>
+            <p>
+              In the following code blocks, we provide the actual GPT-4 Turbo (v04-09) prompts that we use for
+              our lunch bag packing setting:
+            </p>
+            <h5 class="title is-5">Base Language Model API</h5>
+<pre><code class="language-python"># Utility Function for "Python-izing" Arguments as Types
+def pythonize_types(types: Dict[str, List[Dict[str, str]]]) -> str:
+py_str = "# Python Enums defining the various known objects in the scene\n\n"
+
+# Create Enums for each Type Class
+py_str += "# Enums for Various Object Types\n"
+for type_cls, element_list in types.items():
+    py_str += f"class {type_cls}(Enum):\n"
+    for element in element_list:
+        py_str += f"    {element['name']} = auto()  # {element['docstring']}\n"
+    py_str += "\n"
+
+return py_str.strip()
+
+# Fully-Observable Environment State (Object-Oriented)
+TYPE_DEFINITIONS = {
+  "object": [
+      {"name": "CARROTS", "docstring": "A bag of carrots."},
+      {"name": "APPLE_SLICES", "docstring": "A bag of apple slices."},
+      {"name": "GOLDFISH", "docstring": "A carton of goldfish snack."},
+      {"name": "FORK", "docstring": "A fork."},
+      {"name": "SPOON", "docstring": "A spoon."},
+      {"name": "CHEERIOS", "docstring": "A bag of Cheerios cereal."},
+      {"name": "MILK", "docstring": "A carton of milk."},
+
+      {"name": "SKITTLES", "docstring": "A tube-shaped red container of Skittles candy."},
+      {"name": "GUMMY_CANDY", "docstring": "A gummy candy shaped like a hamburger for children."},
+      {"name": "RICE_KRISPIE", "docstring": "A rice krispie snack treat for children."},
+      {"name": "HAND_SANITIZER", "docstring": "A small tube of Purell hand sanitizer for cleaning hands before a meal."},
+      {"name": "LUNCHBAG", "docstring": "A bag or lunchbag or lunchbox for a child."},
+  ]
+}
+
+# Base System Prompt (note `USER_DEFINED_GOAL`)
+BASE_SYSTEM_PROMPT = (
+  "You are a reliable code interface that will be representing a robot arm in a collaborative interaction "
+  "with a user.\n\n"
+
+  "In today's session, the user and robot arm will be working together to {USER_DEFINED_GOAL}. "
+
+  "You will have access to a Python API defining some objects and high-level functions for "
+  "controlling the robot. \n\n"
+
+  "```python\n"
+  "{pythonize_types(TYPE_DEFINITIONS)}\n"
+  "```\n\n"
+
+  "Given a spoken utterance from the user your job is to identify the correct sequence of function calls and "
+  "arguments from the API, returning the appropriate API call in JSON. Note that the speech-to-text engine is not"
+  "perfect! Do your best to handle ambiguities, for example:"
+  "\t- 'Put the carrots in the back' --> 'Put the carrots in the bag' (hard 'g')"
+  "\t- 'Throw the popcorn in the in' --> 'Throw the popcorn in the bin' (soft 'b')\n\n"
+
+  "If an object is not in the API, you should not fail. Instead, return an new object, which will be added to the API in the future. "
+  "Even if you are not sure, respond as best you can to user inputs. "
+)
+
+# In-Context Examples (note `USER_DEFINED_EXAMPLES`)
+ICL_EXAMPLES = [
+  {"role" : "system", "content": BASE_SYSTEM_PROMPT},
+  make_example("release", "release", "{}", "1"),
+  make_example("grasp", "grasp", "{}", "2"),
+  make_example("go home", "go_home", "{}", "3"),
+  make_example("go to the bag", "goto", "{'object': 'LUNCHBAG'}", "5"),
+  make_example("go away!", "go_home", "{}", "6"),
+  make_example("grab the gummy", "pickup", "{'object': 'GUMMY_CANDY'}", "7"),
+  *[make_example(ex) for ex in USER_DEFINED_EXAMPLES]
+]</code></pre>
+          <br/>
+          <p>
+            Note that both <code>USER_DEFINED_GOAL</code> and <code>USER_DEFINED_EXAMPLES</code> are a result of the meta-prompting protocol
+            (Gradio Interface shown in overview video above). We encode each of the motion primitives as OpenAI Function Calling <code>TOOLS</code> 
+            identically to Grannen et. al. 2024. We then invoke generation (without proactive planning) as follows:
+          </p>
+          <br/>
+<pre><code># OpenAI Chat Completion Invocation - All Responses are added to "ICL_EXAMPLES" as running memory
+openai_client = OpenAI(api_key=openai_api_key, organization=organization_id)
+llm_task_plan = openai_client.chat.completions.create(
+    model="gpt-4-turbo-04-09",
+    messages=[*ICL_EXAMPLES, {"role": "user", "content": USER_UTTERANCE}],
+    temperature=0.2,
+    tools=FUNCTIONS,
+    tool_choice="auto",
+)</code></pre>
+          <br/><br/>
+          <h5 class="title is-5">Proactive Planning Prompt</h5>
+          <p>
+            To enable proactive planning in ProVox, we augment the above system prompt with a turn-based "trigger prompt" that explicitly 
+            re-encodes the user-defined goal (<code>USER_DEFINED_GOAL</code>) to suggest helpful actions:
+          </p>
+          <br/>
+<pre><code class="language-python"># Query the Language Model Planner for Helpful Next Actions
+ACTIVE_PROMPT = (
+  f"Propose an action to perform next to {USER_DEFINED_GOAL}. "
+  "Pay careful attention to the goal of the task, and the previous action history. "
+  "Only return a single action. Try to use a more complex action if possible. "
+  "You do not need to go home between tasks. "
+  "If there are multiple possible actions, select the most useful one, and return the appropriate API call in JSON format."
+)
+
+# Auto-Prompt to Generate a Proactive Plan
+llm_proactive_task_plan = openai_client.chat.completions.create(
+  model="gpt-4-turbo-04-09",
+  messages=[*ICL_EXAMPLES, {"role": "user", "content": ACTIVE_PROMPT}],
+  temperature=0.2,
+  tools=FUNCTIONS,
+  tool_choice="auto",
+)</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Meta-Prompting & Proactive Planning -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>,
+            courtesy of <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
